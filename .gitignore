@@ -1,4 +1,7 @@
+# ignore files
 .DS_Store
-.idea
+composer.lock
 
-vendor/
+# ignore folder
+.Build/
+.idea/
