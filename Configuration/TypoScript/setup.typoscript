@@ -1,0 +1,7 @@
+plugin.tx_jdheadlessapi {
+    configurations {
+        elements {
+            ttContent = {$plugin.tx_jdheadlessapi.configurations.elements.ttContent}
+        }
+    }
+}

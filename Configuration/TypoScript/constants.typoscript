@@ -1,8 +1,7 @@
 plugin.tx_jdheadlessapi {
     configurations {
-        mapper {
-            ttContent = EXT:jd_headless_api/Configuration/Yaml/Mapper/TtContentMapper.yaml
-            fileReferences = EXT:jd_headless_api/Configuration/Yaml/Mapper/FileReferences.yaml
+        elements {
+            ttContent = EXT:jd_headless_api/Configuration/Yaml/RESTConfig/TtContent.yaml
         }
     }
 }
