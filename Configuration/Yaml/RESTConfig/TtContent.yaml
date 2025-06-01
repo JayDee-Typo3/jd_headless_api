@@ -1,0 +1,27 @@
+pagination:
+  elementsPerPage: 10
+tableFields:
+  - type:
+    - type: string
+    - fieldName: type
+  - header:
+    - type: string
+    - fieldName: header
+  - subheader:
+    - type: string
+    - fieldname: subheader
+  - bodytext:
+    - type: html
+    - field: bodytext
+  - sysLanguage:
+    - type: integer
+    - parseTo: string
+    - fieldName: sys_language_uid
+  - assets:
+    - type: reference
+    - referenceTable: sys_file_reference
+    - referenceField: assets
+  - image:
+    - type: reference
+    - referenceTable: sys_file_reference
+    - referenceField: image
