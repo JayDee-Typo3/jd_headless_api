@@ -1,6 +1,8 @@
 # ignore files
 .DS_Store
 composer.lock
+.php-cs-fixer.dist.php
+Build/testing-docker/.env
 
 # ignore folder
 .Build/
