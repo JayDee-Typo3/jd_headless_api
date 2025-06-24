@@ -1,0 +1,22 @@
+routeEnhancers:
+  JdHeadlessApiList:
+    type: Simple
+    limitToPages: [1]
+    routePath: '/api/v/1.0'
+  JdHeadlessApiPage:
+    type: Simple
+    limitToPages: [1]
+    routePath: '/api/v/1.0/p/{page}'
+    requirements:
+      page: '[0-9]{1,99}'
+  pageTypeSuffix:
+    type: PageType
+    default: ''
+    map:
+      'get-all-elements/': 1749200401
+      'get-single-element/': 1749200419
+      'put-data/': 1749200438
+      'update-data/': 1749200452
+      'delete-element/': 1749202371
+
+

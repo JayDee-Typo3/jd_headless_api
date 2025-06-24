@@ -1,0 +1,11 @@
+lib.ajaxPageConfig = PAGE
+lib.ajaxPageConfig {
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders = content-type:application/json
+    xhtml_cleaning = 0
+    debug = 0
+    no_cache = 0
+    admPanel = 0
+  }
+}

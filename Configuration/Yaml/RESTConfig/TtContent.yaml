@@ -1,27 +1,33 @@
-pagination:
-  elementsPerPage: 10
+config:
+  tableName: 'tt_content'
+  activeFields:
+    - deleted: 'deleted'
+    - hidden: 'hidden'
+    - language: 'sys_language_uid'
+  pagination:
+    elementsPerPage: 10
 tableFields:
   - type:
-    - type: string
-    - fieldName: type
+      type: string
+      fieldName: type
   - header:
-    - type: string
-    - fieldName: header
+      type: string
+      fieldName: header
   - subheader:
-    - type: string
-    - fieldname: subheader
+      type: string
+      fieldname: subheader
   - bodytext:
-    - type: html
-    - field: bodytext
+      type: html
+      fieldName: bodytext
   - sysLanguage:
-    - type: integer
-    - parseTo: string
-    - fieldName: sys_language_uid
+      type: integer
+      parseTo: string
+      fieldName: sys_language_uid
   - assets:
-    - type: reference
-    - referenceTable: sys_file_reference
-    - referenceField: assets
+      type: reference
+      referenceTable: sys_file_reference
+      referenceField: assets
   - image:
-    - type: reference
-    - referenceTable: sys_file_reference
-    - referenceField: image
+      type: reference
+      referenceTable: sys_file_reference
+      referenceField: image

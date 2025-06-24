@@ -1,3 +1,5 @@
+@import 'EXT:tx_jdheadless_api/configuration/TypoScript/Libs/*'
+
 plugin.tx_jdheadlessapi {
     configurations {
         elements {
@@ -5,3 +7,14 @@ plugin.tx_jdheadlessapi {
         }
     }
 }
+
+[request && traverse(request.?getQueryParams(), 'pageType') == '1749200401']
+  getTableContentAjax < lib.ajaxPageConfig
+  getTableContentAjax.10 = USER
+  getTableContentAjax.10 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = JdHeadlessApi
+    pluginName = Api
+    vendorName = JD
+  }
+[global]
