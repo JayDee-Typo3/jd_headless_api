@@ -4,32 +4,37 @@ declare(strict_types=1);
 
 namespace JD\JdHeadlessApi\Events;
 
+/**
+ * A event to modify the default yaml configuration.
+ *
+ * @package JD\JdHeadlessApi\Events
+ */
 final class ModifyYamlConfigurationPathEvent
 {
     /**
      * Event constructor.
      *
-     * @param string $wholePath
+     * @param string $yamlPath
      * @param string $configIdentifier
      */
-    public function __construct(private string $wholePath, private readonly string $configIdentifier) {}
+    public function __construct(private string $yamlPath, private readonly string $configIdentifier) {}
 
     /**
      * Returns the wholePath
      */
-    public function getWholePath(): string
+    public function getYamlPath(): string
     {
-        return $this->wholePath;
+        return $this->yamlPath;
     }
 
     /**
      * Set the wholePath after modification.
      *
-     * @param string $wholePath
+     * @param string $yamlPath
      */
-    public function setWholePath(string $wholePath): void
+    public function setYamlPath(string $yamlPath): void
     {
-        $this->wholePath = $wholePath;
+        $this->yamlPath = $yamlPath;
     }
 
     /**
