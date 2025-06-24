@@ -35,6 +35,6 @@ class ServerRequestService
      */
     public static function getServerRequest(): ?RequestInterface
     {
-        return $GLOBALS['TYPO3_REQUEST'];
+        return $GLOBALS['TYPO3_REQUEST'] ?? null;
     }
 }
