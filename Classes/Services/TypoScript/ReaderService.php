@@ -23,11 +23,11 @@ class ReaderService
     ) {}
 
     /**
-     * This function extract typoscript data by path.
+     * This function extract an array out of the typoscript by given path.
      *
      * @param string $typoScriptPath
      */
-    public function getTypoScriptConfiguration(string $typoScriptPath): mixed
+    public function getTypoScriptConfiguration(string $typoScriptPath): array
     {
         if (empty($typoScriptPath)) {
             return [];

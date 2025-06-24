@@ -20,9 +20,15 @@ class ConfigurationLoader
     protected ?YamlFileLoader $yamlFileLoader;
 
     /**
+     * @var string $typoScriptElementsPath
+     */
+    private string $typoScriptElementsPath = 'plugin/tx_jdheadless_api/configuration/elements';
+
+    /**
      * Service constructor
      *
      * @param ReaderService $typoScriptReaderService
+     * @param EventDispatcher $eventDispatcher
      */
     public function __construct(
         private ReaderService $typoScriptReaderService,
@@ -45,13 +51,14 @@ class ConfigurationLoader
         if (empty($configIndentifier)) {
             return [];
         }
-        $wholePath = sprintf('plugin/tx_jdheadless_api/configuration/mapper/%s', $configIndentifier);
 
-        $event = new ModifyYamlConfigurationPathEvent($wholePath, $configIndentifier);
+        $typoScriptConfig = $this->typoScriptReaderService->getTypoScriptConfiguration($this->typoScriptElementsPath);
+        $yamlPath = $typoScriptConfig[$configIndentifier] ?? '';
+
+        $event = new ModifyYamlConfigurationPathEvent($yamlPath, $configIndentifier);
         $this->eventDispatcher->dispatch($event);
-        $wholePath = $event->getWholePath();
+        $yamlPath = $event->getYamlPath();
 
-        $yamlPath = $this->typoScriptReaderService->getTypoScriptConfiguration($wholePath);
         if (!file_exists(GeneralUtility::getFileAbsFileName($yamlPath))) {
             return [];
         }
